@@ -1,6 +1,7 @@
 import 'package:exsample_theme/getx/theme_app.dart';
 import 'package:exsample_theme/model/theme_app_modedel.dart';
 import 'package:exsample_theme/screen/popup_theme.dart';
+import 'package:exsample_theme/screen/screen2.dart';
 import 'package:exsample_theme/utils/theme_app.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
@@ -40,8 +41,10 @@ class MainForm extends StatelessWidget {
     return Expanded(
       child: Container(
         alignment: Alignment.center,
+        transformAlignment: Alignment.center,
         color: themeApp.backGroupColor,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -77,8 +80,23 @@ class MainForm extends StatelessWidget {
              );
           },
           child: Container(
+             margin: const EdgeInsets.only(top: 10),
             padding: const EdgeInsets.all(10),
             child: Text("Popup"),
+            decoration: const BoxDecoration(
+              color: Colors.red,
+              borderRadius: BorderRadius.all(Radius.circular(10))
+            ),
+          ),
+        ),
+        InkWell(
+          onTap: (){
+             Get.to(const MainScreen2());
+          },
+          child: Container(
+            margin: const EdgeInsets.only(top: 10),
+            padding: const EdgeInsets.all(10),
+            child: Text("NexScreen"),
             decoration: const BoxDecoration(
               color: Colors.red,
               borderRadius: BorderRadius.all(Radius.circular(10))

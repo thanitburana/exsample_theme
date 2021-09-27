@@ -3,33 +3,27 @@ import 'package:exsample_theme/getx/theme_app.dart';
 import 'package:exsample_theme/model/theme_app_modedel.dart';
 import 'package:exsample_theme/utils/theme_app.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/src/extension_navigation.dart';
-import 'package:get/get_state_manager/src/simple/get_state.dart';
-import 'package:get/instance_manager.dart';
+import 'package:get/get.dart';
 
-class ThemePopup extends StatelessWidget {
-  const ThemePopup({Key? key}) : super(key: key);
+class MainScreen2 extends StatelessWidget {
+  const MainScreen2({ Key? key }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Dialog(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
-      ),
-      elevation: 0,
-      backgroundColor: Colors.transparent,
-      child: const ThemePopupForm(),
+    return  const Scaffold(
+      body:  MainForm(),
     );
   }
 }
 
-class ThemePopupForm extends StatelessWidget {
-  const ThemePopupForm({Key? key}) : super(key: key);
+class MainForm extends StatelessWidget {
+  const MainForm({ Key? key }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GetBuilder<ThemeAppController>(builder: (state) {
       return Container(
+         padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
         color: state.themeAppModel.toolbarColor,
         child: Column(
           children: [
@@ -52,11 +46,11 @@ class ThemePopupForm extends StatelessWidget {
         ),
       );
     });
-  }
-
-  Widget _buildContent(ThemeAppModel themeApp) {
+    }
+    Widget _buildContent(ThemeAppModel themeApp) {
     final ThemeAppController themeAppController = Get.find();
     return Expanded(
+      
         child: Container(
       color: themeApp.backGroupColor,
       child: Column(
